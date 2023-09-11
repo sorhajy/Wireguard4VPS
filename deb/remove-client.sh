@@ -19,9 +19,7 @@ then
     exit 1
 fi
 
-cd /etc/wireguard/clients || exit 1
-# rm -rf "/etc/wireguard/clients/$USERNAME"
-mv "./$USERNAME" "./disabled_$USERNAME"
+mv "/etc/wireguard/clients/$USERNAME" "/etc/wireguard/clients/disabled_$(date +"%Y-%m-%d-%H-%M-%S")_$USERNAME"
 
 sed -i "/# $USERNAME/,+4 d" /etc/wireguard/wg0.conf
 
