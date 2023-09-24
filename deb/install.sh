@@ -44,7 +44,7 @@ if [ -z "$1" ]
   else SERVER_IP=$1
 fi
 
-echo" $SERVER_IP" | grep -o -E '([0-9]+\.){3}' > ./vpn_subnet.var
+echo "$SERVER_IP" | grep -o -E '([0-9]+\.){3}' > ./vpn_subnet.var
 
 read -r -p "Enter the ip address of the server DNS (CIDR format), [ENTER] set to default: 94.140.14.14): " DNS
 if [ -z "$DNS" ]
